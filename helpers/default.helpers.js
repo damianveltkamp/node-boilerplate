@@ -15,3 +15,8 @@ export function getCssBundleName() {
   const cssBundle = fs.readdirSync('static/build/css/');
   return cssBundle[0];
 }
+
+export function getJsBundleName() {
+  const jsBundle = fs.readdirSync('static/build/js/');
+  return jsBundle[0];
+}

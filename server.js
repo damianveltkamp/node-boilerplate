@@ -7,15 +7,17 @@ import * as defaultHelpers from './helpers/default.helpers';
 
 dotenv.config();
 
+const app = express();
 const port = process.env.PORT || 3000;
 const urlEncodedParser = express.urlencoded({ extended: true });
-const app = express();
+const environment = process.env.ENVIRONMENT || 'development'
 
 nunjucks
   .configure(['source/views', ...defaultHelpers.getComponentPaths()], {
     autoescape: true,
     express: app,
   })
+  .addGlobal('jsBundle', defaultHelpers.getJsBundleName())
   .addGlobal('cssBundle', defaultHelpers.getCssBundleName());
 
 app
@@ -25,4 +27,6 @@ app
   .use(express.static('static'))
   .set('view engine', 'html')
   .use('/', router)
-  .listen(port, () => console.log(`Using port: ${port}`));
+  .listen(port, () => {
+    environment === 'development' && console.log(`Connected to port ${port}`);
+  });
