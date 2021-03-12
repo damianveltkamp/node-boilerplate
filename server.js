@@ -10,7 +10,7 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 3000;
 const urlEncodedParser = express.urlencoded({ extended: true });
-const environment = process.env.ENVIRONMENT || 'development'
+const environment = process.env.ENVIRONMENT || 'development';
 
 nunjucks
   .configure(['source/views', ...defaultHelpers.getComponentPaths()], {
