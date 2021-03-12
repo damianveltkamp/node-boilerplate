@@ -6,7 +6,6 @@
   "scripts": {
     "dev": "run-p watch:server build:dev",
     "watch:server": "nodemon --ext html,js -r esm -r module-alias/register server.js",
-    "watch:build": "nodemon --ext html,js -r esm -r module-alias/register server.js",
     "build:dev": "webpack --config webpack.dev.js",
     "build:prod": "webpack --config webpack.prod.js"
   },
