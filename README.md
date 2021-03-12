@@ -1,6 +1,11 @@
 # node-boilerplate
 
-Boilerplate for node projects
+Boilerplate for node projects using:
+
+- Webpack
+- Nodemon
+- Browsersync
+- Module aliases
 
 ## Table of contents
 
