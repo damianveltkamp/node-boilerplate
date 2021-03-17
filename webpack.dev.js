@@ -1,6 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 const { merge } = require('webpack-merge');
-const { resolve } =  require('path');
+const { resolve } = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 const defaultWebpackConfig = require('./webpack.config');

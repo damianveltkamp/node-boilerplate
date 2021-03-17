@@ -27,4 +27,4 @@ app
   .use(express.static('static'))
   .set('view engine', 'html')
   .use('/', router)
-  .listen(port());
+  .listen(port);
