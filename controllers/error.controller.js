@@ -20,12 +20,6 @@ export function notFound(req, res, next) {
 }
 
 export function errorHandler(error, req, res, next) {
-  // This is only error stack
-  console.log(error.stack);
-
-  // Gets error status code
-  console.log(error.status);
-
   const data = {
     layout: 'layout.html',
     title: 'Something went wrong',
