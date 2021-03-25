@@ -4,6 +4,7 @@ import compression from 'compression';
 import dotenv from 'dotenv';
 import router from './routes/index.routes';
 import * as defaultHelpers from './helpers/default.helpers';
+import { notFound, errorHandler } from './controllers/error.controller';
 
 dotenv.config();
 
@@ -22,9 +23,11 @@ nunjucks
 
 app
   .use(compression())
+  .use(express.static('static'))
   .use(express.json())
   .use(urlEncodedParser)
-  .use(express.static('static'))
   .set('view engine', 'html')
   .use('/', router)
+  .use(errorHandler)
+  .use(notFound)
   .listen(port);
