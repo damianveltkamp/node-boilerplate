@@ -1,0 +1,9 @@
+$grid-container-width: 1220px;
+$grid-container-spacing: 20px;
+
+.o-container {
+  max-width: $grid-container-width;
+  margin: 0 auto;
+  padding-left: $grid-container-spacing;
+  padding-right: $grid-container-spacing;
+}
