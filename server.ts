@@ -3,8 +3,12 @@ import nunjucks from 'nunjucks';
 import compression from 'compression';
 import dotenv from 'dotenv';
 import router from './routes/index.routes';
-import * as defaultHelpers from './helpers/default.helpers';
 import { notFound, errorHandler } from './controllers/error.controller';
+import {
+  getComponentPaths,
+  getCssBundleName,
+  getJsBundleName,
+} from './helpers/default.helpers';
 
 dotenv.config();
 
@@ -14,12 +18,12 @@ const urlEncodedParser = express.urlencoded({ extended: true });
 const environment = process.env.ENVIRONMENT || 'development';
 
 nunjucks
-  .configure(['source/views', ...defaultHelpers.getComponentPaths()], {
+  .configure(['source/views', ...getComponentPaths()], {
     autoescape: true,
     express: app,
   })
-  .addGlobal('jsBundle', defaultHelpers.getJsBundleName())
-  .addGlobal('cssBundle', defaultHelpers.getCssBundleName());
+  .addGlobal('jsBundle', getJsBundleName())
+  .addGlobal('cssBundle', getCssBundleName());
 
 app
   .use(compression())

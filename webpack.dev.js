@@ -35,10 +35,10 @@ module.exports = merge(defaultWebpackConfig, {
         ],
       },
       {
-        test: /\.js$/,
+        test: /\.ts$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
+          loader: 'ts-loader',
         },
       },
     ],

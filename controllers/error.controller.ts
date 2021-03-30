@@ -1,4 +1,6 @@
-export function notFound(req, res, next) {
+import { ErrorRequestHandler, NextFunction, Request, Response } from 'express';
+
+export function notFound(req: Request, res: Response, next: NextFunction) {
   res.status(404);
 
   const data = {
@@ -19,7 +21,16 @@ export function notFound(req, res, next) {
   });
 }
 
-export function errorHandler(error, req, res, next) {
+interface ResponseError extends ErrorConstructor {
+  status?: number;
+}
+
+export function errorHandler(
+  error: ResponseError,
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) {
   const data = {
     layout: 'layout.html',
     title: 'Something went wrong',
